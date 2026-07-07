@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website for Nilofar Naaz">
+    <title>Nilofar Naaz | Portfolio</title>
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-soft: #121a33;
+            --card: rgba(17, 24, 39, 0.72);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text: #eef2ff;
+            --muted: #b7c0e0;
+            --accent: #f4b942;
+            --accent-2: #66d9e8;
+            --accent-3: #ff7a90;
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(102, 217, 232, 0.22), transparent 32%),
+                radial-gradient(circle at top right, rgba(244, 185, 66, 0.18), transparent 28%),
+                linear-gradient(160deg, #070b16 0%, #0b1020 45%, #10182d 100%);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 90%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 20px 0 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 16px;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+            background: rgba(10, 14, 28, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            box-shadow: var(--shadow);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            color: #101522;
+            background: linear-gradient(135deg, var(--accent), #ffd87a);
+            box-shadow: 0 12px 30px rgba(244, 185, 66, 0.35);
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--text);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 24px;
+            align-items: center;
+            padding: 48px 0 28px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 999px;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: var(--accent-2);
+            box-shadow: 0 0 0 6px rgba(102, 217, 232, 0.12);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3rem, 6vw, 5.8rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            max-width: 9ch;
+        }
+
+        .hero-copy {
+            margin-top: 20px;
+            max-width: 62ch;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            color: #111522;
+            background: linear-gradient(135deg, var(--accent), #ffd36c);
+            box-shadow: 0 18px 34px rgba(244, 185, 66, 0.22);
+        }
+
+        .btn-secondary {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-panel {
+            position: relative;
+            padding: 24px;
+        }
+
+        .profile-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: calc(var(--radius) + 12px);
+            padding: 28px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            min-height: 420px;
+        }
+
+        .profile-card::before,
+        .profile-card::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(8px);
+        }
+
+        .profile-card::before {
+            width: 220px;
+            height: 220px;
+            right: -70px;
+            top: -70px;
+            background: radial-gradient(circle, rgba(102, 217, 232, 0.42), transparent 65%);
+        }
+
+        .profile-card::after {
+            width: 180px;
+            height: 180px;
+            left: -60px;
+            bottom: -60px;
+            background: radial-gradient(circle, rgba(244, 185, 66, 0.38), transparent 65%);
+        }
+
+        .portrait {
+            width: min(100%, 290px);
+            aspect-ratio: 1;
+            margin-left: auto;
+            border-radius: 34px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), transparent 25%),
+                linear-gradient(160deg, rgba(255, 122, 144, 0.9), rgba(102, 217, 232, 0.9));
+            display: grid;
+            place-items: center;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.26);
+            position: relative;
+            z-index: 1;
+        }
+
+        .portrait span {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3.4rem, 10vw, 5.8rem);
+            letter-spacing: -0.08em;
+        }
+
+        .status-card {
+            position: absolute;
+            left: 26px;
+            bottom: 26px;
+            right: 26px;
+            z-index: 1;
+            padding: 18px 20px;
+            border-radius: 20px;
+            background: rgba(8, 12, 24, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: grid;
+            gap: 6px;
+        }
+
+        .status-card strong {
+            font-size: 1.05rem;
+        }
+
+        .status-card span {
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-top: 28px;
+            padding: 28px;
+            border-radius: var(--radius);
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .section-header h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            letter-spacing: -0.03em;
+        }
+
+        .section-header p {
+            max-width: 48ch;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .about-grid,
+        .skills-grid,
+        .projects-grid,
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .about-card,
+        .skill-card,
+        .project-card,
+        .contact-card {
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .about-card p,
+        .project-card p,
+        .contact-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .stat {
+            padding: 16px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #f4f7ff;
+            font-size: 0.95rem;
+        }
+
+        .project-card {
+            display: grid;
+            gap: 12px;
+            min-height: 180px;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            width: fit-content;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(102, 217, 232, 0.12);
+            border: 1px solid rgba(102, 217, 232, 0.16);
+            color: #bdf1f7;
+            font-size: 0.88rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-card a {
+            color: var(--accent-2);
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .footer {
+            padding: 24px 6px 0;
+            color: rgba(238, 242, 255, 0.7);
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                border-radius: 28px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav {
+                gap: 12px 16px;
+            }
+
+            .stat-row {
+                grid-template-columns: 1fr;
+            }
+
+            .portrait {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 1120px);
+                padding-top: 10px;
+            }
+
+            .section,
+            .profile-card {
+                padding: 20px;
+            }
+
+            .hero {
+                padding-top: 32px;
+            }
+
+            h1 {
+                max-width: 100%;
+            }
+
+            .status-card {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">N</div>
+                <div>
+                    <div>Nilofar Naaz</div>
+                    <small style="color: var(--muted); font-weight: 400;">Creative Portfolio</small>
+                </div>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div>
+                <div class="eyebrow">Open to internships, freelance work, and collaboration</div>
+                <h1>Designing a calm, confident web presence.</h1>
+                <p class="hero-copy">
+                    I am Nilofar Naaz, and I’m building my skills in Git, GitHub, and front-end web design.
+                    This portfolio is a clean starting point to show who I am, what I am learning, and the projects I will grow into.
+                </p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#projects">View Projects</a>
+                    <a class="btn btn-secondary" href="#contact">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <div class="profile-card">
+                    <div class="portrait" aria-hidden="true">
+                        <span>Naaz</span>
+                    </div>
+                    <div class="status-card">
+                        <strong>Currently learning</strong>
+                        <span>HTML, CSS, Git, GitHub, and the basics of responsive portfolio design.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="section-header">
+                <div>
+                    <h2>About Me</h2>
+                </div>
+                <p>A short introduction that can be updated as your experience grows.</p>
+            </div>
+            <div class="grid about-grid">
+                <article class="about-card">
+                    <h3>Who I am</h3>
+                    <p>
+                        I am a learner who enjoys building clear, useful web pages. I like turning simple ideas into
+                        polished interfaces and I am steadily improving my technical confidence.
+                    </p>
+                </article>
+                <article class="about-card">
+                    <h3>What I want</h3>
+                    <p>
+                        I want to keep developing practical web skills, complete more projects, and create work that
+                        feels thoughtful, modern, and easy to use.
+                    </p>
+                </article>
+            </div>
+            <div class="stat-row">
+                <div class="stat">
+                    <strong>1</strong>
+                    <span>Portfolio site started with a responsive single-page layout.</span>
+                </div>
+                <div class="stat">
+                    <strong>3</strong>
+                    <span>Core focus areas: learning, building, and sharing progress.</span>
+                </div>
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Customizable content so you can replace placeholders anytime.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="section-header">
+                <div>
+                    <h2>Skills</h2>
+                </div>
+                <p>These are starter skills that fit the page right now and can evolve with your journey.</p>
+            </div>
+            <div class="grid skills-grid">
+                <article class="skill-card">
+                    <h3>Tools & workflow</h3>
+                    <div class="chips" style="margin-top: 14px;">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">Git</span>
+                        <span class="chip">GitHub</span>
+                    </div>
+                </article>
+                <article class="skill-card">
+                    <h3>Strengths</h3>
+                    <div class="chips" style="margin-top: 14px;">
+                        <span class="chip">Attention to detail</span>
+                        <span class="chip">Willingness to learn</span>
+                        <span class="chip">Clear presentation</span>
+                        <span class="chip">Consistency</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="section-header">
+                <div>
+                    <h2>Projects</h2>
+                </div>
+                <p>Replace these examples with your real work as soon as you have it.</p>
+            </div>
+            <div class="grid projects-grid">
+                <article class="project-card">
+                    <div class="project-tag">Featured</div>
+                    <h3>Personal Portfolio</h3>
+                    <p>A responsive landing page that introduces me, highlights my skills, and gives visitors a quick way to connect.</p>
+                    <div class="project-meta">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Responsive layout</span>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-tag">Coming soon</div>
+                    <h3>Practice Project</h3>
+                    <p>A future project placeholder for anything you build next, such as a small app, clone page, or interactive demo.</p>
+                    <div class="project-meta">
+                        <span>JavaScript</span>
+                        <span>GitHub</span>
+                        <span>Learning in progress</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-header">
+                <div>
+                    <h2>Contact</h2>
+                </div>
+                <p>Add your real email and profile links when you are ready.</p>
+            </div>
+            <div class="grid contact-grid">
+                <article class="contact-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:nilofar@example.com">nilofar@example.com</a></p>
+                    <p>Replace this with your personal email address.</p>
+                </article>
+                <article class="contact-card">
+                    <h3>Find me online</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub profile</a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn profile</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">
+            Crafted for Nilofar Naaz. Update the text, links, and projects as your portfolio grows.
+        </footer>
+    </main>
+</body>
+</html>
