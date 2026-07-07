@@ -3,102 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI Journey by Nilofar - personal portfolio of Nilofar Naaz, AI Learner, Web Developer, and Prompt Engineer.">
+    <meta name="description" content="AI Journey by Nilofar is the premium portfolio of Nilofar Naaz, an AI Learner, Web Developer, and Prompt Engineer from Ranchi, India.">
+    <meta name="keywords" content="Nilofar Naaz, AI Journey by Nilofar, AI learner, web developer, prompt engineer, portfolio">
+    <meta name="author" content="Nilofar Naaz">
+    <meta property="og:title" content="AI Journey by Nilofar">
+    <meta property="og:description" content="Learning AI today. Building the future tomorrow.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Journey by Nilofar">
+    <meta name="twitter:description" content="A premium AI learning portfolio by Nilofar Naaz.">
+    <meta name="twitter:image" content="images/hero.jpg">
     <title>AI Journey by Nilofar | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body data-page="home">
+    <div class="loader" aria-label="Loading website">
+        <span></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <header class="site-header">
         <nav class="navbar" aria-label="Primary navigation">
             <a class="brand" href="index.html" aria-label="AI Journey by Nilofar home">
-                <span class="brand-mark">N</span>
-                <span class="brand-copy">
+                <img src="images/logo.png" alt="" width="44" height="44">
+                <span>
                     <strong>AI Journey</strong>
                     <small>by Nilofar</small>
                 </span>
             </a>
-
             <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
-
             <ul class="nav-menu" id="nav-menu">
-                <li><a class="nav-link" data-nav="home" href="index.html">Home</a></li>
-                <li><a class="nav-link" data-nav="about" href="about.html">About</a></li>
-                <li><a class="nav-link" data-nav="projects" href="projects.html">Projects</a></li>
-                <li><a class="nav-link" data-nav="contact" href="contact.html">Contact</a></li>
+                <li><a data-nav="home" href="index.html">Home</a></li>
+                <li><a data-nav="about" href="about.html">About</a></li>
+                <li><a data-nav="skills" href="skills.html">Skills</a></li>
+                <li><a data-nav="projects" href="projects.html">Projects</a></li>
+                <li><a data-nav="journey" href="journey.html">Journey</a></li>
+                <li><a data-nav="contact" href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero section-pad">
-            <div class="container hero-layout">
+        <section class="hero page-section">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="container hero-grid">
                 <div class="hero-copy reveal">
                     <p class="eyebrow">Nilofar Naaz | Ranchi, Jharkhand, India</p>
                     <h1>AI Journey by Nilofar</h1>
-                    <p class="hero-title">AI Learner | Web Developer | Prompt Engineer</p>
-                    <p class="hero-text">Learning AI today, building the future tomorrow with creativity, curiosity, and a growing collection of thoughtful digital projects.</p>
+                    <p class="hero-subtitle">Learning AI today.<br>Building the future tomorrow.</p>
+                    <p class="hero-text">A premium personal brand documenting AI learning, creative web development, prompt engineering, and the confidence to build meaningful digital work.</p>
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="projects.html">View My Work</a>
-                        <a class="btn btn-secondary" href="contact.html">Contact Me</a>
+                        <a class="btn btn-primary" href="journey.html">Explore Journey</a>
+                        <a class="btn btn-secondary" href="projects.html">View Projects</a>
                     </div>
                 </div>
-
-                <div class="hero-visual reveal">
-                    <div class="ai-orbit glass-card">
-                        <div class="orbit-ring"></div>
-                        <div class="portrait-chip">
-                            <span>NN</span>
-                        </div>
-                        <div class="floating-note note-one">
-                            <strong>AI</strong>
-                            <span>Learning path</span>
-                        </div>
-                        <div class="floating-note note-two">
-                            <strong>Web</strong>
-                            <span>Creative builds</span>
-                        </div>
+                <div class="hero-showcase reveal">
+                    <img src="images/hero.jpg" alt="Futuristic purple AI learning workspace" width="900" height="900" fetchpriority="high">
+                    <div class="metric-card metric-one">
+                        <strong>AI Learner</strong>
+                        <span>Prompting, tools, and growth</span>
+                    </div>
+                    <div class="metric-card metric-two">
+                        <strong>Web Developer</strong>
+                        <span>HTML, CSS, JavaScript</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-pad compact-pad">
+        <section class="page-section section-soft">
             <div class="container">
                 <div class="section-heading centered reveal">
-                    <span>Portfolio Focus</span>
-                    <h2>A premium space for learning, building, and becoming confident with AI.</h2>
+                    <span>Mission</span>
+                    <h2>Documenting progress while building a strong personal brand.</h2>
+                    <p>Designed for teachers, recruiters, clients, developers, students, and AI enthusiasts who want to understand Nilofar's learning journey and creative direction.</p>
                 </div>
                 <div class="feature-grid">
-                    <article class="feature-card glass-card reveal">
-                        <span class="icon-badge">01</span>
-                        <h3>AI Learning Journey</h3>
-                        <p>Documenting growth through prompts, tools, experiments, and practical lessons.</p>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">01</div>
+                        <h3>AI Learning</h3>
+                        <p>Exploring AI tools, prompt engineering, and practical workflows through consistent practice.</p>
                     </article>
-                    <article class="feature-card glass-card reveal">
-                        <span class="icon-badge">02</span>
-                        <h3>Creative Web Development</h3>
-                        <p>Building clean responsive websites with HTML, CSS, JavaScript, and careful UI thinking.</p>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">02</div>
+                        <h3>Creative Building</h3>
+                        <p>Turning ideas into elegant, responsive websites with clean structure and thoughtful design.</p>
                     </article>
-                    <article class="feature-card glass-card reveal">
-                        <span class="icon-badge">03</span>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">03</div>
                         <h3>Future Goals</h3>
-                        <p>Practicing consistently to become confident in AI-assisted development and design.</p>
+                        <p>Growing toward confident AI development, stronger technical skills, and professional opportunities.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section-pad">
-            <div class="container split-panel glass-card reveal">
+        <section class="page-section">
+            <div class="container split-card glass-card reveal">
                 <div>
-                    <p class="eyebrow">Current Direction</p>
-                    <h2>From student curiosity to polished digital confidence.</h2>
+                    <p class="eyebrow">Premium Portfolio</p>
+                    <h2>Minimal, futuristic, and visually rich.</h2>
                 </div>
-                <p>Nilofar is exploring how AI can support creativity, writing, website planning, design decisions, and real project execution. This portfolio presents that journey with a luxury purple interface designed to feel modern, elegant, and future-ready.</p>
+                <p>This site uses layered CSS aurora backgrounds, glowing cards, interactive motion, accessible navigation, and responsive layouts that scale from compact mobile screens to large desktop displays.</p>
             </div>
         </section>
     </main>
@@ -106,12 +120,18 @@
     <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
 
     <footer class="footer">
-        <div class="container footer-inner">
-            <p>AI Journey by Nilofar</p>
-            <p>Built with HTML, CSS, and JavaScript.</p>
+        <div class="container footer-grid">
+            <div>
+                <a class="footer-brand" href="index.html">AI Journey by Nilofar</a>
+                <p>AI Learner | Web Developer | Prompt Engineer</p>
+            </div>
+            <nav aria-label="Footer navigation">
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>

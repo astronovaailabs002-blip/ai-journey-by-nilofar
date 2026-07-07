@@ -3,143 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Nilofar Naaz - AI learner, web developer, and prompt engineer.">
+    <meta name="description" content="Meet Nilofar Naaz, an AI Learner, Web Developer, and Prompt Engineer from Ranchi, India.">
+    <meta property="og:title" content="About Nilofar Naaz">
+    <meta property="og:description" content="Professional introduction, values, education, goals, and AI journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Nilofar Naaz">
+    <meta name="twitter:description" content="AI learner, web developer, and prompt engineer.">
     <title>AI Journey by Nilofar | About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body data-page="about">
+    <div class="loader" aria-label="Loading website"><span></span></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <header class="site-header">
         <nav class="navbar" aria-label="Primary navigation">
             <a class="brand" href="index.html" aria-label="AI Journey by Nilofar home">
-                <span class="brand-mark">N</span>
-                <span class="brand-copy">
-                    <strong>AI Journey</strong>
-                    <small>by Nilofar</small>
-                </span>
+                <img src="images/logo.png" alt="" width="44" height="44">
+                <span><strong>AI Journey</strong><small>by Nilofar</small></span>
             </a>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
             <ul class="nav-menu" id="nav-menu">
-                <li><a class="nav-link" data-nav="home" href="index.html">Home</a></li>
-                <li><a class="nav-link" data-nav="about" href="about.html">About</a></li>
-                <li><a class="nav-link" data-nav="projects" href="projects.html">Projects</a></li>
-                <li><a class="nav-link" data-nav="contact" href="contact.html">Contact</a></li>
+                <li><a data-nav="home" href="index.html">Home</a></li>
+                <li><a data-nav="about" href="about.html">About</a></li>
+                <li><a data-nav="skills" href="skills.html">Skills</a></li>
+                <li><a data-nav="projects" href="projects.html">Projects</a></li>
+                <li><a data-nav="journey" href="journey.html">Journey</a></li>
+                <li><a data-nav="contact" href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="page-hero section-pad">
+        <section class="page-hero page-section">
             <div class="container page-hero-grid">
                 <div class="reveal">
-                    <p class="eyebrow">About Me</p>
-                    <h1>Student, AI learner, and creative web developer.</h1>
+                    <p class="eyebrow">About Nilofar</p>
+                    <h1>Curious student. Creative builder. Future AI developer.</h1>
                 </div>
-                <p class="page-lead reveal">I am Nilofar Naaz, growing through curiosity, creativity, and the ambition to build beautiful digital work with AI assistance and modern web skills.</p>
+                <p class="page-lead reveal">I am Nilofar Naaz from Ranchi, Jharkhand, India. My mission is to document my AI learning journey, showcase my projects, and build a confident personal brand through consistent growth.</p>
             </div>
         </section>
 
-        <section class="section-pad compact-pad">
-            <div class="container about-story glass-card reveal">
-                <div class="section-heading">
-                    <span>My Story</span>
-                    <h2>Learning with intention and imagination.</h2>
-                </div>
-                <p>I am a student from Ranchi, Jharkhand, India, exploring artificial intelligence, prompt engineering, and web development. I enjoy turning simple ideas into polished pages and using AI as a creative learning partner.</p>
-                <p>My portfolio is built around growth: asking better questions, designing cleaner interfaces, writing useful content, and becoming more confident with every project I complete.</p>
+        <section class="page-section section-soft">
+            <div class="container story-grid">
+                <article class="glass-card story-main reveal">
+                    <p class="eyebrow">Professional Introduction</p>
+                    <h2>Learning with purpose, designing with care.</h2>
+                    <p>I am an AI Learner, Web Developer, and Prompt Engineer who enjoys transforming ideas into clean digital experiences. My journey is built on curiosity, creativity, ambition, and the belief that every small project can become a meaningful step forward.</p>
+                    <p>I chose AI because it makes learning more interactive, expands creative thinking, and helps students like me build faster while understanding better. I use it as a support system for research, writing, design planning, and web development practice.</p>
+                </article>
+                <aside class="glass-card profile-card reveal">
+                    <img src="images/logo.png" alt="AI Journey by Nilofar monogram logo" width="220" height="220" loading="lazy">
+                    <h3>Nilofar Naaz</h3>
+                    <p>AI Learner | Web Developer | Prompt Engineer</p>
+                    <span>Ranchi, Jharkhand, India</span>
+                </aside>
             </div>
         </section>
 
-        <section class="section-pad">
+        <section class="page-section">
             <div class="container">
                 <div class="section-heading reveal">
-                    <span>Skills</span>
-                    <h2>Creative and technical skills I am building.</h2>
+                    <span>Foundation</span>
+                    <h2>Education, values, goals, and aspirations.</h2>
                 </div>
-                <div class="card-grid skills-grid">
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">AI</span>
-                        <h3>AI Tools</h3>
-                        <p>Using AI for ideation, research, workflows, and project improvement.</p>
+                <div class="feature-grid four-grid">
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">ED</div>
+                        <h3>Education</h3>
+                        <p>A student actively building digital skills through practical projects, guided learning, and AI-assisted exploration.</p>
                     </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">PE</span>
-                        <h3>Prompt Engineering</h3>
-                        <p>Writing clear, structured prompts that guide AI toward useful results.</p>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">VL</div>
+                        <h3>Values</h3>
+                        <p>Curiosity, discipline, honesty, creativity, clear communication, and a growth mindset guide every project.</p>
                     </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">WD</span>
-                        <h3>Web Development</h3>
-                        <p>Creating responsive websites with HTML, CSS, and vanilla JavaScript.</p>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">GL</div>
+                        <h3>Goals</h3>
+                        <p>Build stronger web development skills, understand AI deeply, and create a portfolio of useful projects.</p>
                     </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">GH</span>
-                        <h3>GitHub</h3>
-                        <p>Practicing repositories, version control, publishing, and deployment.</p>
-                    </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">CV</span>
-                        <h3>Canva</h3>
-                        <p>Designing visual assets, layouts, and student-friendly graphics.</p>
-                    </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">CW</span>
-                        <h3>Content Writing</h3>
-                        <p>Writing clean website copy, project descriptions, and learning updates.</p>
-                    </article>
-                    <article class="skill-card glass-card reveal">
-                        <span class="icon-badge">LD</span>
-                        <h3>Logo Design</h3>
-                        <p>Creating simple brand marks and concepts for creative projects.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-pad">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span>AI Journey Timeline</span>
-                    <h2>Progress, practice, and future goals.</h2>
-                </div>
-                <div class="timeline">
-                    <article class="timeline-item reveal">
-                        <span></span>
-                        <div class="glass-card">
-                            <h3>Started learning AI</h3>
-                            <p>Explored AI as a tool for learning, creativity, and digital confidence.</p>
-                        </div>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <span></span>
-                        <div class="glass-card">
-                            <h3>Learned prompt engineering</h3>
-                            <p>Practiced clear instructions, creative prompting, and goal-focused outputs.</p>
-                        </div>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <span></span>
-                        <div class="glass-card">
-                            <h3>Built websites with AI assistance</h3>
-                            <p>Used AI support to plan sections, refine layouts, and improve code quality.</p>
-                        </div>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <span></span>
-                        <div class="glass-card">
-                            <h3>Practicing GitHub and deployment</h3>
-                            <p>Learning to organize, save, share, and publish projects professionally.</p>
-                        </div>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <span></span>
-                        <div class="glass-card">
-                            <h3>Future goal</h3>
-                            <p>Become confident in AI and web development through consistent practice.</p>
-                        </div>
+                    <article class="glass-card reveal">
+                        <div class="icon-ring">CA</div>
+                        <h3>Career Aspirations</h3>
+                        <p>Become a confident AI developer who can design, build, write, and solve real problems with technology.</p>
                     </article>
                 </div>
             </div>
@@ -149,12 +104,10 @@
     <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
 
     <footer class="footer">
-        <div class="container footer-inner">
-            <p>AI Journey by Nilofar</p>
-            <p>Built with HTML, CSS, and JavaScript.</p>
+        <div class="container footer-grid">
+            <div><a class="footer-brand" href="index.html">AI Journey by Nilofar</a><p>AI Learner | Web Developer | Prompt Engineer</p></div>
+            <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
         </div>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
