@@ -3,653 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio website for Nilofar Naaz">
-    <title>Nilofar Naaz | Portfolio</title>
-    <style>
-        :root {
-            --bg: #0b1020;
-            --bg-soft: #121a33;
-            --card: rgba(17, 24, 39, 0.72);
-            --card-border: rgba(255, 255, 255, 0.12);
-            --text: #eef2ff;
-            --muted: #b7c0e0;
-            --accent: #f4b942;
-            --accent-2: #66d9e8;
-            --accent-3: #ff7a90;
-            --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-            --radius: 24px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(102, 217, 232, 0.22), transparent 32%),
-                radial-gradient(circle at top right, rgba(244, 185, 66, 0.18), transparent 28%),
-                linear-gradient(160deg, #070b16 0%, #0b1020 45%, #10182d 100%);
-            min-height: 100vh;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 28px 28px;
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 90%);
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .page {
-            width: min(1120px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 20px 0 48px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .topbar {
-            position: sticky;
-            top: 16px;
-            z-index: 20;
-            backdrop-filter: blur(18px);
-            background: rgba(10, 14, 28, 0.65);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            box-shadow: var(--shadow);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        .brand-mark {
-            width: 38px;
-            height: 38px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            color: #101522;
-            background: linear-gradient(135deg, var(--accent), #ffd87a);
-            box-shadow: 0 12px 30px rgba(244, 185, 66, 0.35);
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .nav a:hover,
-        .nav a:focus-visible {
-            color: var(--text);
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.3fr 0.9fr;
-            gap: 24px;
-            align-items: center;
-            padding: 48px 0 28px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 999px;
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 9px;
-            height: 9px;
-            border-radius: 999px;
-            background: var(--accent-2);
-            box-shadow: 0 0 0 6px rgba(102, 217, 232, 0.12);
-        }
-
-        h1,
-        h2,
-        h3,
-        p {
-            margin: 0;
-        }
-
-        h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(3rem, 6vw, 5.8rem);
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-            max-width: 9ch;
-        }
-
-        .hero-copy {
-            margin-top: 20px;
-            max-width: 62ch;
-            color: var(--muted);
-            font-size: 1.05rem;
-            line-height: 1.75;
-        }
-
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 28px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            border-radius: 999px;
-            font-weight: 700;
-            border: 1px solid transparent;
-            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
-        }
-
-        .btn:hover,
-        .btn:focus-visible {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            color: #111522;
-            background: linear-gradient(135deg, var(--accent), #ffd36c);
-            box-shadow: 0 18px 34px rgba(244, 185, 66, 0.22);
-        }
-
-        .btn-secondary {
-            color: var(--text);
-            border-color: rgba(255, 255, 255, 0.16);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .hero-panel {
-            position: relative;
-            padding: 24px;
-        }
-
-        .profile-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: calc(var(--radius) + 12px);
-            padding: 28px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow);
-            min-height: 420px;
-        }
-
-        .profile-card::before,
-        .profile-card::after {
-            content: "";
-            position: absolute;
-            border-radius: 999px;
-            filter: blur(8px);
-        }
-
-        .profile-card::before {
-            width: 220px;
-            height: 220px;
-            right: -70px;
-            top: -70px;
-            background: radial-gradient(circle, rgba(102, 217, 232, 0.42), transparent 65%);
-        }
-
-        .profile-card::after {
-            width: 180px;
-            height: 180px;
-            left: -60px;
-            bottom: -60px;
-            background: radial-gradient(circle, rgba(244, 185, 66, 0.38), transparent 65%);
-        }
-
-        .portrait {
-            width: min(100%, 290px);
-            aspect-ratio: 1;
-            margin-left: auto;
-            border-radius: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background:
-                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), transparent 25%),
-                linear-gradient(160deg, rgba(255, 122, 144, 0.9), rgba(102, 217, 232, 0.9));
-            display: grid;
-            place-items: center;
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.26);
-            position: relative;
-            z-index: 1;
-        }
-
-        .portrait span {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(3.4rem, 10vw, 5.8rem);
-            letter-spacing: -0.08em;
-        }
-
-        .status-card {
-            position: absolute;
-            left: 26px;
-            bottom: 26px;
-            right: 26px;
-            z-index: 1;
-            padding: 18px 20px;
-            border-radius: 20px;
-            background: rgba(8, 12, 24, 0.72);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            display: grid;
-            gap: 6px;
-        }
-
-        .status-card strong {
-            font-size: 1.05rem;
-        }
-
-        .status-card span {
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        .section {
-            margin-top: 28px;
-            padding: 28px;
-            border-radius: var(--radius);
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 18px;
-            margin-bottom: 18px;
-        }
-
-        .section-header h2 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(1.7rem, 3vw, 2.5rem);
-            letter-spacing: -0.03em;
-        }
-
-        .section-header p {
-            max-width: 48ch;
-            color: var(--muted);
-            line-height: 1.65;
-        }
-
-        .grid {
-            display: grid;
-            gap: 18px;
-        }
-
-        .about-grid,
-        .skills-grid,
-        .projects-grid,
-        .contact-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .about-card,
-        .skill-card,
-        .project-card,
-        .contact-card {
-            padding: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .about-card p,
-        .project-card p,
-        .contact-card p {
-            color: var(--muted);
-            line-height: 1.7;
-            margin-top: 10px;
-        }
-
-        .stat-row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .stat {
-            padding: 16px;
-            border-radius: 18px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 6px;
-        }
-
-        .stat span {
-            color: var(--muted);
-            line-height: 1.45;
-        }
-
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .chip {
-            padding: 10px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #f4f7ff;
-            font-size: 0.95rem;
-        }
-
-        .project-card {
-            display: grid;
-            gap: 12px;
-            min-height: 180px;
-        }
-
-        .project-tag {
-            display: inline-flex;
-            width: fit-content;
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba(102, 217, 232, 0.12);
-            border: 1px solid rgba(102, 217, 232, 0.16);
-            color: #bdf1f7;
-            font-size: 0.88rem;
-        }
-
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .contact-card a {
-            color: var(--accent-2);
-        }
-
-        .contact-links {
-            display: grid;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .footer {
-            padding: 24px 6px 0;
-            color: rgba(238, 242, 255, 0.7);
-            text-align: center;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 900px) {
-            .hero,
-            .about-grid,
-            .skills-grid,
-            .projects-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .topbar {
-                border-radius: 28px;
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .nav {
-                gap: 12px 16px;
-            }
-
-            .stat-row {
-                grid-template-columns: 1fr;
-            }
-
-            .portrait {
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .page {
-                width: min(100% - 20px, 1120px);
-                padding-top: 10px;
-            }
-
-            .section,
-            .profile-card {
-                padding: 20px;
-            }
-
-            .hero {
-                padding-top: 32px;
-            }
-
-            h1 {
-                max-width: 100%;
-            }
-
-            .status-card {
-                left: 16px;
-                right: 16px;
-                bottom: 16px;
-            }
-        }
-    </style>
+    <meta name="description" content="AI Journey by Nilofar - portfolio of Nilofar Naaz, AI learner, web developer, and prompt engineer from Ranchi, Jharkhand.">
+    <title>AI Journey by Nilofar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="page">
-        <header class="topbar">
-            <div class="brand">
-                <div class="brand-mark">N</div>
-                <div>
-                    <div>Nilofar Naaz</div>
-                    <small style="color: var(--muted); font-weight: 400;">Creative Portfolio</small>
-                </div>
-            </div>
-            <nav class="nav" aria-label="Primary">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+    <header class="site-header" id="top">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="#home" aria-label="AI Journey by Nilofar home">
+                <span class="brand-mark">N</span>
+                <span class="brand-text">AI Journey</span>
+            </a>
 
-        <section class="hero" id="home">
-            <div>
-                <div class="eyebrow">Open to internships, freelance work, and collaboration</div>
-                <h1>Designing a calm, confident web presence.</h1>
-                <p class="hero-copy">
-                    I am Nilofar Naaz, and I’m building my skills in Git, GitHub, and front-end web design.
-                    This portfolio is a clean starting point to show who I am, what I am learning, and the projects I will grow into.
-                </p>
-                <div class="cta-row">
-                    <a class="btn btn-primary" href="#projects">View Projects</a>
-                    <a class="btn btn-secondary" href="#contact">Contact Me</a>
-                </div>
-            </div>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <div class="hero-panel">
-                <div class="profile-card">
-                    <div class="portrait" aria-hidden="true">
-                        <span>Naaz</span>
-                    </div>
-                    <div class="status-card">
-                        <strong>Currently learning</strong>
-                        <span>HTML, CSS, Git, GitHub, and the basics of responsive portfolio design.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <section class="section" id="about">
-            <div class="section-header">
-                <div>
-                    <h2>About Me</h2>
-                </div>
-                <p>A short introduction that can be updated as your experience grows.</p>
-            </div>
-            <div class="grid about-grid">
-                <article class="about-card">
-                    <h3>Who I am</h3>
-                    <p>
-                        I am a learner who enjoys building clear, useful web pages. I like turning simple ideas into
-                        polished interfaces and I am steadily improving my technical confidence.
+    <main>
+        <section class="hero section-pad" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <p class="eyebrow">Nilofar Naaz - Ranchi, Jharkhand</p>
+                    <h1>AI Journey by Nilofar</h1>
+                    <p class="hero-subtitle">Learning AI today, building the future tomorrow.</p>
+                    <p class="hero-copy">
+                        I am an AI learner, creative web developer, and prompt engineer growing one project at a time with curiosity, ambition, and thoughtful design.
                     </p>
-                </article>
-                <article class="about-card">
-                    <h3>What I want</h3>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#projects">View My Work</a>
+                        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-card reveal">
+                    <div class="orbital-card">
+                        <div class="profile-glow">
+                            <span>NN</span>
+                        </div>
+                        <div class="hero-stats">
+                            <div>
+                                <strong>AI Learner</strong>
+                                <span>Prompting, tools, and workflows</span>
+                            </div>
+                            <div>
+                                <strong>Web Developer</strong>
+                                <span>Responsive HTML, CSS, and JavaScript</span>
+                            </div>
+                            <div>
+                                <strong>Future Goal</strong>
+                                <span>Confident AI-powered creator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad" id="about">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>About</span>
+                    <h2>Student, builder, and creative learner.</h2>
+                </div>
+                <div class="about-panel glass reveal">
                     <p>
-                        I want to keep developing practical web skills, complete more projects, and create work that
-                        feels thoughtful, modern, and easy to use.
+                        I am Nilofar Naaz, a student from Ranchi, Jharkhand, India, exploring the exciting world of artificial intelligence and modern web development. My journey is shaped by curiosity, creativity, and the ambition to turn small learning steps into meaningful digital work.
                     </p>
-                </article>
-            </div>
-            <div class="stat-row">
-                <div class="stat">
-                    <strong>1</strong>
-                    <span>Portfolio site started with a responsive single-page layout.</span>
-                </div>
-                <div class="stat">
-                    <strong>3</strong>
-                    <span>Core focus areas: learning, building, and sharing progress.</span>
-                </div>
-                <div class="stat">
-                    <strong>100%</strong>
-                    <span>Customizable content so you can replace placeholders anytime.</span>
+                    <p>
+                        I enjoy using AI as a learning partner, practicing prompt engineering, designing clean websites, and building confidence through real projects. Every page, prompt, and design is part of my growth story.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="skills">
-            <div class="section-header">
-                <div>
-                    <h2>Skills</h2>
+        <section class="section-pad" id="skills">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>Skills</span>
+                    <h2>Tools and strengths I am developing.</h2>
                 </div>
-                <p>These are starter skills that fit the page right now and can evolve with your journey.</p>
-            </div>
-            <div class="grid skills-grid">
-                <article class="skill-card">
-                    <h3>Tools & workflow</h3>
-                    <div class="chips" style="margin-top: 14px;">
-                        <span class="chip">HTML</span>
-                        <span class="chip">CSS</span>
-                        <span class="chip">Git</span>
-                        <span class="chip">GitHub</span>
-                    </div>
-                </article>
-                <article class="skill-card">
-                    <h3>Strengths</h3>
-                    <div class="chips" style="margin-top: 14px;">
-                        <span class="chip">Attention to detail</span>
-                        <span class="chip">Willingness to learn</span>
-                        <span class="chip">Clear presentation</span>
-                        <span class="chip">Consistency</span>
-                    </div>
-                </article>
+                <div class="card-grid skills-grid">
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">AI</span>
+                        <h3>AI Tools</h3>
+                        <p>Learning to use AI tools for research, ideation, writing, and better project workflows.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">PE</span>
+                        <h3>Prompt Engineering</h3>
+                        <p>Practicing clear instructions, creative prompts, and result-focused AI conversations.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">WD</span>
+                        <h3>Web Development</h3>
+                        <p>Building responsive pages with semantic HTML, polished CSS, and vanilla JavaScript.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">GH</span>
+                        <h3>GitHub</h3>
+                        <p>Practicing repositories, project updates, deployment habits, and version control basics.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">CV</span>
+                        <h3>Canva</h3>
+                        <p>Creating simple visual assets, layouts, social graphics, and presentation designs.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">CW</span>
+                        <h3>Content Writing</h3>
+                        <p>Writing clean, friendly content for websites, portfolios, and learning updates.</p>
+                    </article>
+                    <article class="skill-card glass reveal">
+                        <span class="card-icon">LD</span>
+                        <h3>Logo Design</h3>
+                        <p>Designing simple brand marks and visual ideas for personal and student projects.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="projects">
-            <div class="section-header">
-                <div>
-                    <h2>Projects</h2>
+        <section class="section-pad" id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>Projects</span>
+                    <h2>Practice work with purpose and polish.</h2>
                 </div>
-                <p>Replace these examples with your real work as soon as you have it.</p>
-            </div>
-            <div class="grid projects-grid">
-                <article class="project-card">
-                    <div class="project-tag">Featured</div>
-                    <h3>Personal Portfolio</h3>
-                    <p>A responsive landing page that introduces me, highlights my skills, and gives visitors a quick way to connect.</p>
-                    <div class="project-meta">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Responsive layout</span>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-tag">Coming soon</div>
-                    <h3>Practice Project</h3>
-                    <p>A future project placeholder for anything you build next, such as a small app, clone page, or interactive demo.</p>
-                    <div class="project-meta">
-                        <span>JavaScript</span>
-                        <span>GitHub</span>
-                        <span>Learning in progress</span>
-                    </div>
-                </article>
+                <div class="card-grid projects-grid">
+                    <article class="project-card glass reveal">
+                        <div class="project-topline">Personal Brand</div>
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive personal website that introduces my skills, learning journey, and creative goals.</p>
+                        <a href="#home" aria-label="View Portfolio Website project">Explore</a>
+                    </article>
+                    <article class="project-card glass reveal">
+                        <div class="project-topline">Learning Website</div>
+                        <h3>NoorPath Islamic Knowledge Website</h3>
+                        <p>A thoughtful knowledge website concept focused on clear structure, calm design, and helpful content.</p>
+                        <a href="#contact" aria-label="Ask about NoorPath Islamic Knowledge Website">Ask Me</a>
+                    </article>
+                    <article class="project-card glass reveal">
+                        <div class="project-topline">Logo Design</div>
+                        <h3>Spice Garden Restaurant Logo</h3>
+                        <p>A restaurant logo concept exploring warm identity, memorable styling, and food-brand appeal.</p>
+                        <a href="#contact" aria-label="Ask about Spice Garden Restaurant Logo">Ask Me</a>
+                    </article>
+                    <article class="project-card glass reveal">
+                        <div class="project-topline">Event Page</div>
+                        <h3>Farewell Event Page</h3>
+                        <p>A student event page idea designed for announcements, highlights, memories, and easy sharing.</p>
+                        <a href="#contact" aria-label="Ask about Farewell Event Page">Ask Me</a>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="contact">
-            <div class="section-header">
-                <div>
-                    <h2>Contact</h2>
+        <section class="section-pad" id="journey">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>AI Journey Timeline</span>
+                    <h2>Growing step by step.</h2>
                 </div>
-                <p>Add your real email and profile links when you are ready.</p>
-            </div>
-            <div class="grid contact-grid">
-                <article class="contact-card">
-                    <h3>Email</h3>
-                    <p><a href="mailto:nilofar@example.com">nilofar@example.com</a></p>
-                    <p>Replace this with your personal email address.</p>
-                </article>
-                <article class="contact-card">
-                    <h3>Find me online</h3>
-                    <div class="contact-links">
-                        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub profile</a>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn profile</a>
-                    </div>
-                </article>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <span></span>
+                        <div class="glass">
+                            <h3>Started learning AI</h3>
+                            <p>Explored how AI can support learning, creativity, and confidence.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <span></span>
+                        <div class="glass">
+                            <h3>Learned prompt engineering</h3>
+                            <p>Practiced asking better questions and giving clearer instructions.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <span></span>
+                        <div class="glass">
+                            <h3>Built websites with AI assistance</h3>
+                            <p>Used AI support to plan sections, improve layouts, and write cleaner code.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <span></span>
+                        <div class="glass">
+                            <h3>Practicing GitHub and deployment</h3>
+                            <p>Learning to save, share, and publish projects with a professional workflow.</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <span></span>
+                        <div class="glass">
+                            <h3>Future goal</h3>
+                            <p>Become confident in AI and web development through consistent practice.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <footer class="footer">
-            Crafted for Nilofar Naaz. Update the text, links, and projects as your portfolio grows.
-        </footer>
+        <section class="section-pad" id="contact">
+            <div class="container contact-grid">
+                <div class="contact-copy reveal">
+                    <div class="section-heading">
+                        <span>Contact</span>
+                        <h2>Let us build the next idea.</h2>
+                    </div>
+                    <p>
+                        For projects, collaborations, or learning conversations, send a message by email.
+                    </p>
+                    <a class="email-link" href="mailto:nilofarnaaz@example.com">nilofarnaaz@example.com</a>
+                </div>
+
+                <form class="contact-form glass reveal" action="mailto:nilofarnaaz@example.com" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="your@email.com" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+                    <button class="btn btn-primary" type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+        <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
+    <footer class="footer">
+        <div class="container">
+            <p>(c) 2026 AI Journey by Nilofar. Built with HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
