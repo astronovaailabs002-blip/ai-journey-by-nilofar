@@ -31,7 +31,7 @@
     <header class="site-header">
         <nav class="navbar" aria-label="Primary navigation">
             <a class="brand" href="index.html" aria-label="AI Journey by Nilofar home">
-                <img src="images/logo.png" alt="" width="44" height="44">
+                <img src="images/logo.png" alt="" width="44" height="44" loading="lazy" decoding="async">
                 <span>
                     <strong>AI Journey</strong>
                     <small>by Nilofar</small>
@@ -66,7 +66,10 @@
                     </div>
                 </div>
                 <div class="hero-showcase reveal">
-                    <img src="images/hero.jpg" alt="Futuristic purple AI learning workspace" width="900" height="900" fetchpriority="high">
+                    <picture>
+                        <source srcset="images/hero-mobile.jpg" media="(max-width: 640px)">
+                        <img src="images/hero.jpg" alt="Futuristic purple AI learning workspace" width="900" height="900" loading="lazy" decoding="async" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 939px) calc(100vw - 52px), 48vw">
+                    </picture>
                     <div class="metric-card metric-one">
                         <strong>AI Learner</strong>
                         <span>Prompting, tools, and growth</span>

@@ -21,6 +21,8 @@ const app = {
         this.revealItems = document.querySelectorAll(".reveal");
         this.backToTop = document.querySelector(".back-to-top");
         this.currentPage = this.body.dataset.page;
+        this.scrollTicking = false;
+        this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     },
 
     bindLoader() {
@@ -74,13 +76,25 @@ const app = {
     },
 
     bindScrollEffects() {
-        window.addEventListener("scroll", () => this.updateOnScroll(), { passive: true });
+        window.addEventListener("scroll", () => this.requestScrollUpdate(), { passive: true });
 
         if (this.backToTop) {
             this.backToTop.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, behavior: this.prefersReducedMotion ? "auto" : "smooth" });
             });
         }
+    },
+
+    requestScrollUpdate() {
+        if (this.scrollTicking) {
+            return;
+        }
+
+        this.scrollTicking = true;
+        window.requestAnimationFrame(() => {
+            this.updateOnScroll();
+            this.scrollTicking = false;
+        });
     },
 
     updateOnScroll() {
@@ -97,7 +111,7 @@ const app = {
         }
 
         if (this.progress) {
-            this.progress.style.width = `${progress}%`;
+            this.progress.style.transform = `scaleX(${progress / 100})`;
         }
     },
 
@@ -129,8 +143,7 @@ const app = {
 
         window.addEventListener("pointermove", (event) => {
             this.cursorGlow.style.opacity = "1";
-            this.cursorGlow.style.left = `${event.clientX}px`;
-            this.cursorGlow.style.top = `${event.clientY}px`;
+            this.cursorGlow.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
         });
 
         window.addEventListener("pointerleave", () => {
